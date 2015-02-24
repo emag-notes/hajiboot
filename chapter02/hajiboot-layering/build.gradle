@@ -34,7 +34,7 @@ sourceSets {
 dependencies {
   compile 'org.springframework.boot:spring-boot-starter'
 
-  compile 'org.projectlombok:lombok:1.16.2'
+  provided 'org.projectlombok:lombok:1.16.2'
 
   testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
