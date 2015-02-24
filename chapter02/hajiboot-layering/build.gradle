@@ -1,0 +1,40 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.1.RELEASE'
+  }
+}
+
+apply plugin: 'spring-boot'
+
+jar {
+  baseName = 'hajiboot-layering'
+  version = '1.0.0-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+configurations {
+  provided
+}
+
+sourceSets {
+  main {
+    compileClasspath += configurations.provided
+  }
+}
+
+dependencies {
+  compile 'org.springframework.boot:spring-boot-starter'
+
+  compile 'org.projectlombok:lombok:1.16.2'
+
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
