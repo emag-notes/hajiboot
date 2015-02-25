@@ -32,7 +32,7 @@ sourceSets {
 }
 
 dependencies {
-  compile 'org.springframework.boot:spring-boot-starter-jdbc'
+  compile 'org.springframework.boot:spring-boot-starter-data-jpa'
   compile 'com.h2database:h2'
   compile 'org.lazyluke:log4jdbc-remix:0.2.7'
 
