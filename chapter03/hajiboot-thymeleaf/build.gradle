@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'spring-boot'
 
 jar {
-  baseName = 'hajiboot-layering'
+  baseName = 'hajiboot-thymeleaf'
   version = '1.0.0-SNAPSHOT'
 }
 
@@ -32,6 +32,9 @@ sourceSets {
 }
 
 dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.springframework.boot:spring-boot-starter-undertow'
+  compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
   compile 'org.springframework.boot:spring-boot-starter-data-jpa'
   compile 'com.h2database:h2'
   compile 'org.lazyluke:log4jdbc-remix:0.2.7'

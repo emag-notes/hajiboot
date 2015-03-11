@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'spring-boot'
 
 jar {
-  baseName = 'hajiboot-layering'
+  baseName = 'hajiboot-rest'
   version = '1.0.0-SNAPSHOT'
 }
 
@@ -32,11 +32,13 @@ sourceSets {
 }
 
 dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.springframework.boot:spring-boot-starter-undertow'
   compile 'org.springframework.boot:spring-boot-starter-data-jpa'
   compile 'com.h2database:h2'
   compile 'org.lazyluke:log4jdbc-remix:0.2.7'
 
-  provided 'org.projectlombok:lombok:1.16.2'
+  compile 'org.projectlombok:lombok:1.16.2'
 
   testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
