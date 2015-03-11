@@ -1,0 +1,52 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.1.RELEASE'
+  }
+}
+
+apply plugin: 'spring-boot'
+
+jar {
+  baseName = 'hajiboot-security'
+  version = '1.0.0-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+configurations {
+  provided
+}
+
+sourceSets {
+  main {
+    compileClasspath += configurations.provided
+  }
+}
+
+dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.springframework.boot:spring-boot-starter-undertow'
+  compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+  compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3'
+  compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+  compile 'org.springframework.boot:spring-boot-starter-security'
+
+  compile 'com.h2database:h2'
+  compile 'org.lazyluke:log4jdbc-remix:0.2.7'
+  compile 'org.flywaydb:flyway-core'
+
+  compile 'org.webjars:bootstrap:3.3.2-2'
+
+
+  provided 'org.projectlombok:lombok:1.16.2'
+
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
