@@ -11,4 +11,4 @@
 ## 参考
 
 * [書籍サポートページ](https://github.com/making/hajiboot-samples/)
-* [Appendix A. Common application properties](http://docs.spring.io/spring-boot/docs/1.2.1.RELEASE/reference/htmlsingle/#howto-use-undertow-instead-of-tomcat)
+* [Appendix A. Common application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
