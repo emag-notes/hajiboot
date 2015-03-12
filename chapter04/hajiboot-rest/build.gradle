@@ -1,0 +1,58 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.1.RELEASE'
+  }
+}
+
+apply plugin: 'spring-boot'
+
+jar {
+  baseName = 'hajiboot-rest'
+  version = '1.0.0-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+configurations {
+  provided
+}
+
+sourceSets {
+  main {
+    compileClasspath += configurations.provided
+  }
+}
+
+dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.springframework.boot:spring-boot-starter-undertow'
+  compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+  compile 'org.springframework.boot:spring-boot-starter-actuator'
+  compile 'com.h2database:h2'
+  compile 'org.lazyluke:log4jdbc-remix:0.2.7'
+
+  compile 'org.projectlombok:lombok:1.16.2'
+
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task stage(type: Copy, dependsOn: [clean, build]) {
+  from jar.archivePath
+  into project.rootDir 
+  rename {
+    'app.jar'
+  }
+}
+stage.mustRunAfter(clean)
+
+clean << {
+  project.file('app.jar').delete()
+}
